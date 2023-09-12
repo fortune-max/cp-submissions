@@ -1,4 +1,5 @@
 freqs = [0 for _ in range(1001)]
+ans_freq, ans_val = 0, 0
 
 for p in range(12, 1001):
   for a in range(3, 334):
@@ -7,6 +8,7 @@ for p in range(12, 1001):
       real_b_sq = c**2 - a**2
       if b_exp_sq == real_b_sq:
         freqs[p] += 1
+        if freqs[p] > ans_freq:
+          ans_freq, ans_val = freqs[p], p
 
-ans = freqs.index(max(freqs))
-print(ans)
+print(ans_val)
